@@ -54,13 +54,13 @@ registerErrorRoute(app)
 registerWelcomeRoute(app)
 
 app.get('/', (req: Request, res: Response) => {
-  res.redirect('welcome', 303)
+  res.redirect('login', 303)
 })
 
 register404Route(app)
 register500Route(app)
 
-const port = 80
+const port = 3000
 
 let listener = (proto: 'http' | 'https') => () => {
   console.log(`Listening on ${proto}://0.0.0.0:${port}`)

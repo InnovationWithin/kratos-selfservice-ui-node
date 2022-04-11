@@ -1,11 +1,11 @@
-FROM node:17.0-alpine
+FROM node:14-slim
+
+ENV KRATOS_PUBLIC_URL=https://auth.innovationwithin.services
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 ARG LINK=no
-
-RUN adduser -S ory -D -u 10000 -s /bin/nologin
 
 COPY package.json .
 COPY package-lock.json .
@@ -19,8 +19,6 @@ RUN if [ "$LINK" == "true" ]; then (cd ./contrib/sdk/generated; rm -rf node_modu
     fi
 
 RUN npm run build
-
-USER 10000
 
 ENTRYPOINT npm run serve
 
