@@ -18,6 +18,7 @@ export const createHomeRoute: RouteCreator =
     const { flow, aal = '', refresh = '', return_to = '' } = req.query
     const helpers = createHelpers(req)
     const { sdk, kratosBrowserUrl } = helpers
+    
     const initFlowUrl = getUrlForFlow(
       kratosBrowserUrl,
       'login',
@@ -28,45 +29,11 @@ export const createHomeRoute: RouteCreator =
       })
     )
 
-    const initRegistrationUrl = getUrlForFlow(
-      kratosBrowserUrl,
-      'registration',
-      new URLSearchParams({
-        return_to: return_to.toString()
-      })
-    )
-
-    // The flow is used to identify the settings and registration flow and
-    // return data like the csrf_token and so on.
-    if (!isQuerySet(flow)) {
-
-      logger.debug('No flow ID found in URL query initializing login flow', {
-        query: req.query
-      })
-      return
-      
-    }
-
-    // It is probably a bit strange to have a logout URL here, however this screen
-    // is also used for 2FA flows. If something goes wrong there, we probably want
-    // to give the user the option to sign out!
-    const logoutUrl =
-      (
-        await sdk
-          .createSelfServiceLogoutFlowUrlForBrowsers(req.header('cookie'))
-          .catch(() => ({ data: { logout_url: '' } }))
-      ).data.logout_url || ''
-
-    return sdk
-      .getSelfServiceLoginFlow(flow, req.header('cookie'))
+    //@ts-ignore
+    return sdk.getSelfServiceLoginFlow(flow, req.header('cookie'))
       .then(({ data: flow }) => {
         // Render the data using a view (e.g. Jade Template):
-        res.render('login', {
-          ...flow,
-          isAuthenticated: true,
-          signUpUrl: initRegistrationUrl,
-          logoutUrl: logoutUrl
-        })
+        res.render('welcome', flow)
       })
       .catch(redirectOnSoftError(res, next, initFlowUrl))
   }
@@ -139,16 +106,11 @@ export const registerWelcomeRoute: RouteRegistrator = (
   app.get('/welcome', createLoginRoute(createHelpers))
 }
 
-export const staticLoginR: RouteCreator =
-  (createHelpers) => async (req, res, next) => {
-  return;
-}
-
 export const registerLoginRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig,
 ) => {
-  app.get('/home', requireAuth(createHelpers), createHomeRoute(createHelpers))
+  app.get('/home', createHomeRoute(createHelpers))
 }
 
 
