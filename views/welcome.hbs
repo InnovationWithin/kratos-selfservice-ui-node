@@ -2,12 +2,11 @@
   <div class="app-container welcome">
     <div class="card">
       <p class="typography-paragraph">
-        Please select the team you would like to work in.
-
-        {{> ui_screen_button testId="launch" link="https://app.innovationwithin.com" label="Launch"}}
+        {{> ui_screen_button testId="launch" target="_blank" link="https://app.innovationwithin.services" label="Prod"}}
+        {{> ui_screen_button testId="launch" target="_blank" link="https://ci.innovationwithin.services" label="CI"}}
       </p>
       <div class="row">
-        {{> ui_screen_button testId="account-settings" link="settings" label="Account Settings" disabled=(not hasSession)}}
+        {{> ui_screen_button testId="account-settings" link="settings" label="Settings" disabled=(not hasSession)}}
         {{> ui_screen_button testId="logout" href=logoutUrl label="Logout" disabled=(not hasSession) }}
       </div>
     </div>
