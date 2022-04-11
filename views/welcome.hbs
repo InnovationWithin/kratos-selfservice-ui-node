@@ -2,20 +2,15 @@
   <div class="app-container welcome">
     <div class="card">
       <div class="row">
-        {{> ui_screen_button testId="login" link="login" label="Login" disabled=(hasSession)}}
+        {{> ui_screen_button link="login" label="Login" disabled=(hasSession)}}
       </div>
       <div class="row">
-        <p class="typography-paragraph">
-          *You probably want to login first
-        </p>
-
-        <a class="button" target="_blank" href="https://app.innovationwithin.services">Prod</a>
-        <br />
-        <a class="button" target="_blank" href="https://ci.innovationwithin.services">CI</a>
+        {{> ui_screen_button href="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
+        {{> ui_screen_button href="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
       </div>
       <div class="row">
         {{> ui_screen_button testId="account-settings" link="settings" label="Settings" disabled=(not hasSession)}}
-        {{> ui_screen_button testId="logout" href=logoutUrl label="Logout" disabled=(not hasSession) }}
+        {{> ui_screen_button testId="logout" href="https://auth.innovationwithin.services/self-service/logout/browser" label="Logout" disabled=(not hasSession) }}
       </div>
     </div>
   </div>
