@@ -19,7 +19,7 @@ export const createLoginRoute: RouteCreator =
     const { sdk, kratosBrowserUrl } = helpers
     const initFlowUrl = getUrlForFlow(
       kratosBrowserUrl,
-      'login',
+      'welcome',
       new URLSearchParams({
         aal: aal.toString(),
         refresh: refresh.toString(),
