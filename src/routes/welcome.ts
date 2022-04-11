@@ -7,7 +7,8 @@ import {
   removeTrailingSlash,
   RouteCreator,
   setSession,
-  RouteRegistrator
+  RouteRegistrator,
+  requireAuth
 } from '../pkg'
 
 export const createLoginRoute: RouteCreator =
@@ -19,7 +20,7 @@ export const createLoginRoute: RouteCreator =
     const { sdk, kratosBrowserUrl } = helpers
     const initFlowUrl = getUrlForFlow(
       kratosBrowserUrl,
-      'welcome',
+      'login',
       new URLSearchParams({
         aal: aal.toString(),
         refresh: refresh.toString(),
@@ -74,6 +75,13 @@ export const registerWelcomeRoute: RouteRegistrator = (
   createHelpers = defaultConfig,
 ) => {
   app.get('/welcome', setSession(createHelpers), createLoginRoute(createHelpers))
+}
+
+export const registerLoginRoute: RouteRegistrator = (
+  app,
+  createHelpers = defaultConfig,
+) => {
+  app.get('/login', requireAuth(createHelpers), createLoginRoute(createHelpers))
 }
 
 

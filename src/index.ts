@@ -16,7 +16,8 @@ import {
   registerSettingsRoute,
   registerStaticRoutes,
   registerVerificationRoute,
-  registerWelcomeRoute
+  registerWelcomeRoute,
+  registerLoginRoute
 } from './routes'
 
 const app = express()
@@ -49,6 +50,7 @@ registerSettingsRoute(app)
 registerVerificationRoute(app)
 registerWelcomeRoute(app)
 registerErrorRoute(app)
+registerLoginRoute(app)
 
 app.get('/', (req: Request, res: Response) => {
   res.redirect('welcome', 303)
