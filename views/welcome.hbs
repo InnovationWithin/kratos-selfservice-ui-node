@@ -4,10 +4,15 @@
       <div class="row">
         {{> ui_screen_button testId="login" link="login" label="Login" disabled=(hasSession)}}
       </div>
-      <p class="typography-paragraph">
-        {{> ui_screen_button testId="launch" target="_blank" link="https://app.innovationwithin.services" disabled=(not hasSession) label="Prod"}}
-        {{> ui_screen_button testId="launch" target="_blank" link="https://ci.innovationwithin.services" disabled=(not hasSession) label="CI"}}
-      </p>
+      <div class="row">
+        <p class="typography-paragraph">
+          *You probably want to login first
+        </p>
+
+        <a class="button" target="_blank" href="https://app.innovationwithin.services">Prod</a>
+        <br />
+        <a class="button" target="_blank" href="https://ci.innovationwithin.services">CI</a>
+      </div>
       <div class="row">
         {{> ui_screen_button testId="account-settings" link="settings" label="Settings" disabled=(not hasSession)}}
         {{> ui_screen_button testId="logout" href=logoutUrl label="Logout" disabled=(not hasSession) }}
