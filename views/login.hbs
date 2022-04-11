@@ -16,8 +16,8 @@
   {{#if isAuthenticated}}
     <div class="card">
       <div class="row">
-        {{> ui_screen_button href="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
-        {{> ui_screen_button href="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
+        {{> ui_screen_button href="https://app.innovationwithin.services" label="Prod" disabled=(not isAuthenticated)}}
+        {{> ui_screen_button href="https://ci.innovationwithin.services" label="CI" disabled=(not isAuthenticated)}}
       </div>
       <div class="card-action">
         <a class="typography-link typography-h2" data-testid="logout-link" href="{{logoutUrl}}">Log out</a>

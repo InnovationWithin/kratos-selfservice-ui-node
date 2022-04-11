@@ -64,7 +64,7 @@ export const createLoginRoute: RouteCreator =
         // Render the data using a view (e.g. Jade Template):
         res.render('login', {
           ...flow,
-          isAuthenticated: 'welcome' || flow.requested_aal === 'aal2',
+          isAuthenticated: flow.refresh || flow.requested_aal === 'aal2',
           signUpUrl: initRegistrationUrl,
           logoutUrl: logoutUrl
         })
