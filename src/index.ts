@@ -53,7 +53,7 @@ registerErrorRoute(app)
 registerLoginRoute(app)
 
 app.get('/', (req: Request, res: Response) => {
-  res.redirect('welcome', 303)
+  res.redirect('home', 303)
 })
 
 register404Route(app)

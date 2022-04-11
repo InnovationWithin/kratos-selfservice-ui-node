@@ -5,12 +5,12 @@
         {{> ui_screen_button link="login" label="Login" disabled=(hasSession)}}
       </div>
       <div class="row">
-        {{> ui_screen_button href="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
-        {{> ui_screen_button href="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
+        {{> ui_screen_button link="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
+        {{> ui_screen_button link="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
       </div>
       <div class="row">
         {{> ui_screen_button testId="account-settings" link="settings" label="Settings" disabled=(not hasSession)}}
-        {{> ui_screen_button testId="logout" href="https://auth.innovationwithin.services/self-service/logout/browser" label="Logout" disabled=(not hasSession) }}
+        {{> ui_screen_button testId="logout" link="https://auth.innovationwithin.services/self-service/logout/browser" label="Logout" disabled=(not hasSession) }}
       </div>
     </div>
   </div>
