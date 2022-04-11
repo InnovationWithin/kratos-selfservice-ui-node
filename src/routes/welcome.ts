@@ -11,31 +11,29 @@ import {
   requireAuth
 } from '../pkg'
 
-export const createHomeRoute: RouteCreator =
-  (createHelpers) => async (req, res, next) => {
-    res.locals.projectName = 'Sign in'
+export const createWelcomeRoute: RouteCreator =
+  (createHelpers) => async (req, res) => {
+    res.locals.projectName = 'Innovation Within'
 
-    const { flow, aal = '', refresh = '', return_to = '' } = req.query
-    const helpers = createHelpers(req)
-    const { sdk, kratosBrowserUrl } = helpers
-    
-    const initFlowUrl = getUrlForFlow(
-      kratosBrowserUrl,
-      'login',
-      new URLSearchParams({
-        aal: aal.toString(),
-        refresh: refresh.toString(),
-        return_to: return_to.toString()
-      })
-    )
+    const { sdk } = createHelpers(req)
+    const session = req.session
 
-    //@ts-ignore
-    return sdk.getSelfServiceLoginFlow(flow, req.header('cookie'))
-      .then(({ data: flow }) => {
-        // Render the data using a view (e.g. Jade Template):
-        res.render('welcome', flow)
-      })
-      .catch(redirectOnSoftError(res, next, initFlowUrl))
+    // Create a logout URL
+    const logoutUrl =
+      (
+        await sdk
+          .createSelfServiceLogoutFlowUrlForBrowsers(req.header('cookie'))
+          .catch(() => ({ data: { logout_url: '' } }))
+      ).data.logout_url || ''
+
+    res.render('welcome', {
+      session: session
+        ? JSON.stringify(session, null, 2)
+        : `No valid Ory Session was found.
+Please sign in to receive one.`,
+      hasSession: Boolean(session),
+      logoutUrl
+    })
   }
 
 export const createLoginRoute: RouteCreator =
@@ -110,7 +108,7 @@ export const registerLoginRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig,
 ) => {
-  app.get('/home', createHomeRoute(createHelpers))
+  app.get('/home', createWelcomeRoute(createHelpers))
 }
 
 
