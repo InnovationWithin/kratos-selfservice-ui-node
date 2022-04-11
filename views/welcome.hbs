@@ -1,9 +1,12 @@
 <div class="container-fluid">
   <div class="app-container welcome">
     <div class="card">
+      <div class="row">
+        {{> ui_screen_button testId="login" link="login" label="Login" disabled=(hasSession)}}
+      </div>
       <p class="typography-paragraph">
-        {{> ui_screen_button testId="launch" target="_blank" link="https://app.innovationwithin.services" label="Prod"}}
-        {{> ui_screen_button testId="launch" target="_blank" link="https://ci.innovationwithin.services" label="CI"}}
+        {{> ui_screen_button testId="launch" target="_blank" link="https://app.innovationwithin.services" disabled=(not hasSession) label="Prod"}}
+        {{> ui_screen_button testId="launch" target="_blank" link="https://ci.innovationwithin.services" disabled=(not hasSession) label="CI"}}
       </p>
       <div class="row">
         {{> ui_screen_button testId="account-settings" link="settings" label="Settings" disabled=(not hasSession)}}
