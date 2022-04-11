@@ -11,7 +11,6 @@ import {
   register500Route,
   registerErrorRoute,
   registerHealthRoute,
-  registerLoginRoute,
   registerRecoveryRoute,
   registerRegistrationRoute,
   registerSettingsRoute,
@@ -44,14 +43,12 @@ app.engine(
 
 registerStaticRoutes(app)
 registerHealthRoute(app)
-registerLoginRoute(app)
 registerRecoveryRoute(app)
 registerRegistrationRoute(app)
 registerSettingsRoute(app)
 registerVerificationRoute(app)
 registerWelcomeRoute(app)
 registerErrorRoute(app)
-registerWelcomeRoute(app)
 
 app.get('/', (req: Request, res: Response) => {
   res.redirect('login', 303)
