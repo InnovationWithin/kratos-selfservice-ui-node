@@ -39,11 +39,13 @@ export const createLoginRoute: RouteCreator =
     // The flow is used to identify the settings and registration flow and
     // return data like the csrf_token and so on.
     if (!isQuerySet(flow)) {
+
       logger.debug('No flow ID found in URL query initializing login flow', {
         query: req.query
       })
       res.redirect(303, initFlowUrl)
       return
+      
     }
 
     // It is probably a bit strange to have a logout URL here, however this screen
@@ -62,7 +64,7 @@ export const createLoginRoute: RouteCreator =
         // Render the data using a view (e.g. Jade Template):
         res.render('login', {
           ...flow,
-          isAuthenticated: flow.refresh || flow.requested_aal === 'aal2',
+          isAuthenticated: 'welcome' || flow.requested_aal === 'aal2',
           signUpUrl: initRegistrationUrl,
           logoutUrl: logoutUrl
         })
