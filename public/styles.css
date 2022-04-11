@@ -13,6 +13,10 @@ main {
     flex: 1;
 }
 
+.typography-paragraph {
+    font-family: 'Noto Sans Display', sans-serif !important;
+}
+
 .app-container {
     display: flex;
     flex-direction: column;
@@ -101,6 +105,23 @@ fieldset {
     display: block;
     box-sizing: border-box;
     text-decoration: none;
+    background-color: #083D77;
+    font-family: 'Noto Sans Display', sans-serif !important;
+}
+
+.input-button a.button:hover {
+    background-color: #0D63BF;
+}
+
+.input-button a.button:focus {
+    background-color: #07325F;
+}
+
+footer {
+    display: block;
+    width: 100%;
+    height: 60px;
+    background-color: #2E4057;
 }
 
 .input-button a.button[aria-disabled="true"],
@@ -111,9 +132,11 @@ fieldset {
 
 .recovery-code {
     margin-bottom: .5rem;
+    font-family: 'Noto Sans Display', sans-serif !important;
 }
 
 form img {
     margin: 0 auto;
     display: block;
 }
+
