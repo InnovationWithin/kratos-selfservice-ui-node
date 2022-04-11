@@ -73,7 +73,7 @@ export const registerWelcomeRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig,
 ) => {
-  app.get('/login', setSession(createHelpers), createLoginRoute(createHelpers))
+  app.get('/welcome', setSession(createHelpers), createLoginRoute(createHelpers))
 }
 
 

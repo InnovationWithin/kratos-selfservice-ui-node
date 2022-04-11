@@ -72,5 +72,5 @@ export const registerLoginRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig
 ) => {
-  app.get('/login', createLoginRoute(createHelpers))
+  app.get('/welcome', createLoginRoute(createHelpers))
 }
