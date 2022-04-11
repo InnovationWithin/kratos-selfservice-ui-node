@@ -95,7 +95,7 @@ export const requireNoAuth =
     sdk
       .toSession(undefined, req.header('cookie'))
       .then(() => {
-        res.redirect('login')
+        res.redirect('welcome')
       })
       .catch(() => {
         next()
