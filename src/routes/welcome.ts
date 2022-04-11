@@ -108,7 +108,7 @@ export const registerLoginRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig,
 ) => {
-  app.get('/home', createWelcomeRoute(createHelpers))
+  app.get('/home', requireAuth(createHelpers), createWelcomeRoute(createHelpers))
 }
 
 

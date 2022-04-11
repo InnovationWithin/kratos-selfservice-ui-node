@@ -2,9 +2,6 @@
   <div class="app-container welcome">
     <div class="card">
       <div class="row">
-        {{> ui_screen_button link="login" label="Login" disabled=(hasSession)}}
-      </div>
-      <div class="row">
         {{> ui_screen_button link="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
         {{> ui_screen_button link="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
       </div>
