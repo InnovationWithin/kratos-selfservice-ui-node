@@ -74,14 +74,19 @@ export const registerWelcomeRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig,
 ) => {
-  app.get('/welcome', setSession(createHelpers), createLoginRoute(createHelpers))
+  app.get('/welcome', createLoginRoute(createHelpers))
+}
+
+export const staticLoginR: RouteCreator =
+  (createHelpers) => async (req, res, next) => {
+  return;
 }
 
 export const registerLoginRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig,
 ) => {
-  app.get('/login', requireAuth(createHelpers), createLoginRoute(createHelpers))
+  app.get('/login', staticLoginR(createHelpers))
 }
 
 
