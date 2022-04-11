@@ -6,7 +6,8 @@ import {
   redirectOnSoftError,
   removeTrailingSlash,
   RouteCreator,
-  RouteRegistrator
+  RouteRegistrator,
+  requireAuth
 } from '../pkg'
 
 export const createLoginRoute: RouteCreator =
@@ -72,5 +73,5 @@ export const registerLoginRoute: RouteRegistrator = (
   app,
   createHelpers = defaultConfig
 ) => {
-  app.get('/welcome', createLoginRoute(createHelpers))
+  app.get('/login', requireAuth(createHelpers), createLoginRoute(createHelpers))
 }
