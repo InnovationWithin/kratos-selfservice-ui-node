@@ -60,7 +60,7 @@ app.get('/', (req: Request, res: Response) => {
 register404Route(app)
 register500Route(app)
 
-const port = 4000
+const port = 80
 
 let listener = (proto: 'http' | 'https') => () => {
   console.log(`Listening on ${proto}://0.0.0.0:${port}`)
