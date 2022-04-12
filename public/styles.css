@@ -21,6 +21,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #1c445b !important;
 }
 
+.typography-link {
+    color: #1c445b !important;
+}
+
 .app-container {
     display: flex;
     flex-direction: column;
@@ -51,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-title {
     text-align: center;
-    color: #1c445b;
+    color: #1c445b !important;
     font-family: 'Noto Sans Display', sans-serif !important;
 }
 
@@ -73,6 +77,10 @@ fieldset {
     box-sizing: border-box;
 }
 
+.text-input:hover {
+    border-color: rgb(36, 114, 173) !important;
+}
+
 .messages .message {
     color: var(--grey70);
     font-size: 12px;
@@ -85,7 +93,7 @@ fieldset {
 }
 
 .required-indicator {
-    color: var(--primary60);
+    color: #1c445b !important;
 }
 
 .checkbox {
@@ -110,16 +118,29 @@ fieldset {
     display: block;
     box-sizing: border-box;
     text-decoration: none;
-    background-color: #083D77;
+    background-color: rgb(36, 114, 173) !important;
     font-family: 'Noto Sans Display', sans-serif !important;
 }
 
 .input-button a.button:hover {
-    background-color: #0D63BF;
+    background-color: #0D63BF !important;
 }
 
 .input-button a.button:focus {
-    background-color: #07325F;
+    background-color: #07325F !important;
+}
+
+.input-button button {
+    background-color: rgb(36, 114, 173) !important;
+    font-family: 'Noto Sans Display', sans-serif !important;
+}
+
+.input-button button:hover {
+    background-color: #0D63BF !important;
+}
+
+.input-button button:focus {
+    background-color: #07325F !important;
 }
 
 footer {
