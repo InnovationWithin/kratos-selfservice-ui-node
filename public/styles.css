@@ -13,8 +13,12 @@ main {
     flex: 1;
 }
 
-.typography-paragraph {
+.typography-paragraph, h1, h2, h3, h4, h5, h6 {
     font-family: 'Noto Sans Display', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1c445b !important;
 }
 
 .app-container {
@@ -47,7 +51,8 @@ main {
 
 .card-title {
     text-align: center;
-    color: var(--primary60);
+    color: #1c445b;
+    font-family: 'Noto Sans Display', sans-serif !important;
 }
 
 .card-action {
