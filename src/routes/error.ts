@@ -3,8 +3,6 @@ import { AxiosError } from 'axios'
 import {
   defaultConfig,
   isQuerySet,
-  removeTrailingSlash,
-  requireAuth,
   RouteCreator,
   RouteRegistrator
 } from '../pkg'

@@ -4,9 +4,7 @@ import {
   isQuerySet,
   logger,
   redirectOnSoftError,
-  removeTrailingSlash,
   RouteCreator,
-  setSession,
   RouteRegistrator,
   requireAuth
 } from '../pkg'
@@ -31,7 +29,7 @@ export const createWelcomeRoute: RouteCreator =
         ? JSON.stringify(session, null, 2)
         : `No valid Ory Session was found.
 Please sign in to receive one.`,
-      hasSession: Boolean(session),
+      hasSession: true,
       logoutUrl
     })
   }
