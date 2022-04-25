@@ -4,6 +4,8 @@
       <div class="row">
         {{> ui_screen_button link="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
         {{> ui_screen_button link="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
+        {{> ui_screen_button link="https://justin.innovationwithin.services/signin" label="DEV J" disabled=(not hasSession)}}
+        {{> ui_screen_button link="https://cole.innovationwithin.services/signin" label="DEV C" disabled=(not hasSession)}}
       </div>
       <div class="row">
         {{> ui_screen_button testId="account-settings" link="settings" label="Settings" disabled=(not hasSession)}}

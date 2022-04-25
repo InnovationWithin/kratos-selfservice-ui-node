@@ -33,9 +33,7 @@ const maybeInitiate2FA =
 const addSessionToRequest =
   (req: Request) =>
   ({ data: session }: { data: Session }) => {
-    // `whoami` returns the session or an error. We're changing the type here
-    // because express-session is not detected by TypeScript automatically.
-    req.session = session
+    
   }
 
 /**
