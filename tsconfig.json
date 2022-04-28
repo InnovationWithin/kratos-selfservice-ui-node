@@ -17,5 +17,5 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "exclude": ["contrib"]
+  "exclude": ["contrib", "node_modules"]
 }

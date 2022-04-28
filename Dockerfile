@@ -1,6 +1,6 @@
 FROM node:14-slim
 
-ENV KRATOS_PUBLIC_URL=https://auth.innovationwithin.services
+ENV KRATOS_PUBLIC_URL=https://linx.innovationwithin.services/.ory
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
