@@ -13,6 +13,13 @@ main {
     flex: 1;
 }
 
+.iw-settings-button {
+    position: absolute;
+    width: 80px;
+    top: 10px;
+    right: 20px;
+}
+
 .typography-paragraph, h1, h2, h3, h4, h5, h6 {
     font-family: 'Noto Sans Display', sans-serif !important;
 }
