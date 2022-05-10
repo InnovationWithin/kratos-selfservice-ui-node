@@ -2,14 +2,33 @@
   <div class="app-container welcome">
     <div class="card">
       <div class="row">
-        {{> ui_screen_button link="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
-        {{> ui_screen_button link="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
-        {{> ui_screen_button link="https://justin.innovationwithin.services/signin" label="DEV J" disabled=(not hasSession)}}
-        {{> ui_screen_button link="https://cole.innovationwithin.services/signin" label="DEV C" disabled=(not hasSession)}}
+        <div class="mdc-card">
+          <div class="mdc-card__primary-action" tabindex="0">
+            <h1>Discovery</h1>
+            <div class="mdc-touch-target-wrapper">
+              <button class="mdc-button mdc-button--touch">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__touch"></span>
+                <span class="mdc-button__label">Production - Latest Team</span>
+              </button>
+            </div>
+            <div class="mdc-card__ripple"></div>
+          </div>
+        </div>
       </div>
       <div class="row">
-        {{> ui_screen_button exClass="iw-settings-button" testId="account-settings" link="settings" label="Settings" disabled=(not hasSession)}}
-        {{> ui_screen_button exClass="iw-login-button" testId="logout" link=logoutUrl label="Logout" disabled=(not hasSession) }}
+        {{> ui_screen_button link="https://app.innovationwithin.services" label="Prod" disabled=(not hasSession)}}
+        {{> ui_screen_button link="https://ci.innovationwithin.services" label="CI" disabled=(not hasSession)}}
+        {{> ui_screen_button link="https://justin.innovationwithin.services/signin" label="DEV J" disabled=(not
+        hasSession)}}
+        {{> ui_screen_button link="https://cole.innovationwithin.services/signin" label="DEV C" disabled=(not
+        hasSession)}}
+      </div>
+      <div class="row">
+        {{> ui_screen_button exClass="iw-settings-button" testId="account-settings" link="settings" label="Settings"
+        disabled=(not hasSession)}}
+        {{> ui_screen_button exClass="iw-login-button" testId="logout" link=logoutUrl label="Logout" disabled=(not
+        hasSession) }}
       </div>
     </div>
   </div>
