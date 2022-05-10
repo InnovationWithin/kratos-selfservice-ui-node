@@ -15,14 +15,14 @@ main {
 
 .iw-settings-button {
     position: absolute;
-    width: 80px !important;
+    width: auto !important;
     top: 10px;
     right: 20px;
 }
 
 .iw-login-button {
     position: absolute;
-    width: 80px !important;
+    width: auto !important;
     top: 10px;
     right: 120px;
 }
